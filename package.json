@@ -1,0 +1,28 @@
+{
+  "name": "home_inspection_checklist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "config": "^3.3.3",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reganlam/home_inspection_checklist.git"
+  },
+  "author": "Regan Lam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reganlam/home_inspection_checklist/issues"
+  },
+  "homepage": "https://github.com/reganlam/home_inspection_checklist#readme"
+}
