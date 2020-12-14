@@ -1,5 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ContextContainer } from './Checklist';
+
+import Radio from './Radio';
+
 const Exterior = () => {
+  const { formData, setFormData } = useContext(ContextContainer);
+
+  const onChange = e =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
   return (
     <div className='exterior'>
       <table class='table'>
@@ -12,315 +21,30 @@ const Exterior = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope='col'>Back Doors</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Deck, Porch, Patio</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Doorbell</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Driveway</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Front Doors</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Garage Doors</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Garbage Receptacle</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>House Number</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Mailbox</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Outdoor Lights</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Paint and Trim</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Parking</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Recycling Receptacle</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Sidewalks</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Siding (brick/stone/cement)</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Traffic Noise</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Windows</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <p>Are things loose, cracked, damaged, rotted, bug infested?</p>
+          <Radio fullName='Back Doors' itemName='back_doors' />
+          <Radio fullName='Deck, Porch, Patio' itemName='deck' />
+          <Radio fullName='Doorbell' itemName='doorbell' />
+          <Radio fullName='Driveway' itemName='driveway' />
+          <Radio fullName='Front Doors' itemName='front_doors' />
+          <Radio fullName='Garage Doors' itemName='garage_doors' />
+          <Radio fullName='Garbage Receptacle' itemName='garbage_receptacle' />
+          <Radio fullName='House Number' itemName='house_number' />
+          <Radio fullName='Mailbox' itemName='mailbox' />
+          <Radio fullName='Outdoor Lights' itemName='outdoor_lights' />
+          <Radio fullName='Paint and Trim' itemName='paint_and_trim' />
+          <Radio fullName='Parking' itemName='parking' />
+          <Radio
+            fullName='Recycling Receptacle'
+            itemName='recycling_receptacle'
+          />
+          <Radio fullName='Sidewalks' itemName='sidewalks' />
+          <Radio fullName='Siding (brick/stone/cement)' itemName='siding' />
+          <Radio fullName='Traffic Noise' itemName='traffic_noise' />
+          <Radio fullName='Windows' itemName='exterior_windows' />
         </tbody>
       </table>
+
+      <p>Are things loose, cracked, damaged, rotted, bug infested?</p>
 
       <label>
         Notes:

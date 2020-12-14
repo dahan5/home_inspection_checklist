@@ -1,5 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ContextContainer } from './Checklist';
+
+import Radio from './Radio';
+
 const Yard = () => {
+  const { formData, setFormData } = useContext(ContextContainer);
+
+  const onChange = e =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
   return (
     <div className='yard'>
       <table class='table'>
@@ -12,121 +21,25 @@ const Yard = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope='col'>Drainage</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Fences and Gates</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Retaining Wall</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Shed</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Sprinklers</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Swimming Pool</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <p>Trees, shrubs and lawn dead, dying or bug infested?</p>
+          <Radio fullName='Drainage' itemName='drainage' />
+          <Radio fullName='Fences and Gates' itemName='fences' />
+          <Radio fullName='Retaining Wall' itemName='retaining_wall' />
+          <Radio fullName='Shed' itemName='shed' />
+          <Radio fullName='Sprinklers' itemName='sprinklers' />
+          <Radio fullName='Swimming Pool' itemName='swimming_pool' />
         </tbody>
       </table>
 
+      <p>Trees, shrubs and lawn dead, dying or bug infested?</p>
+
       <label>
         Notes:
-        <input type='text' />
+        <input
+          type='text'
+          name='yard_notes'
+          value={formData.yard_notes}
+          onChange={e => onChange(e)}
+        />
       </label>
     </div>
   );

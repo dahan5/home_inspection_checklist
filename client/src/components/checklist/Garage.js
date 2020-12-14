@@ -1,5 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ContextContainer } from './Checklist';
+
+import Radio from './Radio';
+
 const Garage = () => {
+  const { formData, setFormData } = useContext(ContextContainer);
+
+  const onChange = e =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
   return (
     <div className='garage'>
       <table class='table'>
@@ -12,138 +21,26 @@ const Garage = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope='col'>Ceiling</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Doors</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Floors</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Lights</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Storage</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Walls</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Windows</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
+          <Radio fullName='Ceiling' itemName='ceiling' />
+          <Radio fullName='Doors' itemName='doors' />
+          <Radio fullName='Floors' itemName='floors' />
+          <Radio fullName='Lights' itemName='lights' />
+          <Radio fullName='Storage' itemName='storage' />
+          <Radio fullName='Walls' itemName='walls' />
+          <Radio fullName='Windows' itemName='garage_windows' />
         </tbody>
       </table>
 
+      <p>Is the garage door opener operating properly?</p>
+
       <label>
         Notes:
-        <input type='text' />
+        <input
+          type='text'
+          name='garage_notes'
+          value={formData.garage_notes}
+          onChange={e => onChange(e)}
+        />
       </label>
     </div>
   );

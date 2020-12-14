@@ -14,7 +14,7 @@ app.use(express.json({ extended: false }));
 app.use('/api/checklist', require('./routes/api/checklist'));
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('API running...');
 });
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server on port ${PORT} started...`));

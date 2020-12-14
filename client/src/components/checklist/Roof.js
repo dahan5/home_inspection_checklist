@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ContextContainer } from './Checklist';
+
+import Radio from './Radio';
+
 const Roof = () => {
+  const { formData, setFormData } = useContext(ContextContainer);
+
+  const onChange = e =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
   return (
     <div className='roof'>
-      <table class='table'>
-        <thead>
+      <table className='table'>
+        <thead className='thead-light'>
           <tr>
             <th scope='col'>Roof</th>
             <th scope='col'>Good</th>
@@ -12,67 +21,22 @@ const Roof = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope='col'>Chimney</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Gutters and Downspouts</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Soffits and fascia</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <p>When was it last replaced? Are there encroaching trees?</p>
+          <Radio fullName='Chimney' itemName='chimney' />
+          <Radio fullName='Gutters and Downspouts' itemName='gutters' />
+          <Radio fullName='Soffits and Fascia' itemName='soffits' />
         </tbody>
       </table>
 
+      <p>When was it last replaced? Are there encroaching trees?</p>
+
       <label>
         Notes:
-        <input type='text' />
+        <input
+          type='text'
+          name='roof_notes'
+          value={formData.roof_notes}
+          onChange={e => onChange(e)}
+        />
       </label>
     </div>
   );

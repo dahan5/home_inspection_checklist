@@ -1,5 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ContextContainer } from './Checklist';
+
+import Radio from './Radio';
+
 const Fireplace = () => {
+  const { formData, setFormData } = useContext(ContextContainer);
+
+  const onChange = e =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
   return (
     <div className='fireplace'>
       <table class='table'>
@@ -12,103 +21,24 @@ const Fireplace = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope='col'>Blockages</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Carbon Monoxide Detector</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Mantle</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Soot</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <tr>
-            <th scope='col'>Tiles</th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-            <th>
-              <label class='checkbox-inline'>
-                <input type='checkbox' value=''></input>
-              </label>
-            </th>
-          </tr>
-          <p>Any buildup inside? Damage where connected to roof?</p>
+          <Radio fullName='Blockages' itemName='blockages' />
+          <Radio fullName='Carbon Monoxide Detector' itemName='carbon' />
+          <Radio fullName='Mantle' itemName='mantle' />
+          <Radio fullName='Soot' itemName='soot' />
+          <Radio fullName='Tiles' itemName='tiles' />
         </tbody>
       </table>
 
+      <p>Any buildup inside? Damage where connected to roof?</p>
+
       <label>
         Notes:
-        <input type='text' />
+        <input
+          type='text'
+          name='fireplace_notes'
+          value={formData.fireplace_notes}
+          onChange={e => onChange(e)}
+        />
       </label>
     </div>
   );
