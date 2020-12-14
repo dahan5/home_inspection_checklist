@@ -8,4 +8,8 @@
     ```
 2. Go to http://localhost:3000/    
 
+### Checklist Screenshot
 ![Checklist Screenshot](https://imgur.com/oKtUEqG.png)
+
+### Get all checklist API
+![API Screenshot](https://imgur.com/EhttS7A.png)
