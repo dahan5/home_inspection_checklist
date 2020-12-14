@@ -7,6 +7,9 @@ const PORT = 5000;
 // Connect DB
 connectDB();
 
+// Init Middleware
+app.use(express.json({ extended: false }));
+
 // Define Routes
 app.use('/api/checklist', require('./routes/api/checklist'));
 

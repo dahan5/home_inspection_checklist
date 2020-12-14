@@ -133,6 +133,27 @@ const ChecklistSchema = new mongoose.Schema({
       type: String,
     },
   },
+
+  fireplace: {
+    blockages: {
+      type: String,
+    },
+    carbon: {
+      type: String,
+    },
+    mantle: {
+      type: String,
+    },
+    soot: {
+      type: String,
+    },
+    tiles: {
+      type: String,
+    },
+    notes: {
+      type: String,
+    },
+  },
 });
 
 module.exports = Checklist = mongoose.model('checklist', ChecklistSchema);
