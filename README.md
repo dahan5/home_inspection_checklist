@@ -1,3 +1,3 @@
 # home_inspection_checklist
 
-![Checklist Screenshot](https://imgur.com/oKtUEqG)
+![Checklist Screenshot](https://imgur.com/oKtUEqG.png)
