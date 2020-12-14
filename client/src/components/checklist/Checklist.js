@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
 
 import Exterior from './Exterior';
@@ -11,7 +11,7 @@ import Fireplace from './Fireplace';
 // Create context container in a global scope so it can be visible by every component
 export const ContextContainer = React.createContext(null);
 
-const Checklist = () => {
+const Checklist = props => {
   const [formData, setFormData] = useState({
     address: '',
 
@@ -82,54 +82,71 @@ const Checklist = () => {
         },
       };
 
-      alert('trying');
-
-      // alert(formData.address);
-
       await axios.post('/api/checklist', formData, config);
+
+      alert('Checklist successfully sent');
+      props.history.push('/');
     } catch (err) {
-      // TODO: error handling
+      const errors = err.response.data.errors;
+
+      if (errors) {
+        for (const error of errors) {
+          alert(error.msg);
+        }
+      }
     }
   };
 
   return (
     <Fragment>
-      <div className='container'>
+      <div className='container mt-3 mb-5'>
         <h1>Home Inspection Checklist</h1>
 
         <form onSubmit={e => onSubmit(e)}>
-          <label>
-            Address:
+          <div className='input-group-prepend'>
+            <span className='input-group-text font-weight-bold'>Address</span>
             <input
               type='text'
+              placeholder='Enter address'
               name='address'
               value={formData.address}
               onChange={e => onChange(e)}
+              className='form-control'
             />
-          </label>
+          </div>
 
-          <p>
-            Note: This checklist is for personal use only. It should not be used
-            in place of an official house inspection. This list may not be
-            comprehensive. Contact a qualified ASHI certified home inspector for
-            an official inspection.
-          </p>
+          <div className='font-group p-2'>
+            <p className='font-italic font-weight-light'>
+              Note: This checklist is for personal use only. It should not be
+              used in place of an official house inspection. This list may not
+              be comprehensive. Contact a qualified ASHI certified home
+              inspector for an official inspection.
+            </p>
 
-          <p>
-            M - missing, S - scratched, D - damaged, B - broken, R -
-            repair/replace, W - Water Damage, L - Leaking
-          </p>
+            <p className='font-weight-bold text-secondary'>
+              M - missing, S - scratched, D - damaged, B - broken, R -
+              repair/replace, W - Water Damage, L - Leaking
+            </p>
+          </div>
 
-          <ContextContainer.Provider value={{ formData, setFormData }}>
-            <Exterior formData />
-            <Yard formData />
-            <Roof formData />
-            <Garage formData />
-            <Fireplace formData />
-          </ContextContainer.Provider>
+          <div className='row'>
+            <ContextContainer.Provider value={{ formData, setFormData }}>
+              <div className='col-sm'>
+                <Exterior formData />
+                <Yard formData />
+              </div>
 
-          <input type='submit' className='btn btn-success' />
-          <Link to='/' className='btn btn-secondary'>
+              <div className='col-sm'>
+                <Roof formData />
+                <Garage formData />
+                <Fireplace formData />
+              </div>
+            </ContextContainer.Provider>
+          </div>
+
+          <input type='submit' className='btn btn-outline-primary' />
+
+          <Link to='/' className='btn btn-outline-secondary ml-2'>
             Go Back
           </Link>
         </form>
@@ -138,4 +155,4 @@ const Checklist = () => {
   );
 };
 
-export default Checklist;
+export default withRouter(Checklist);

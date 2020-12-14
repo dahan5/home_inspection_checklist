@@ -10,35 +10,35 @@ const Radio = props => {
   return (
     <tr>
       <th scope='col'>{props.fullName}</th>
-      <td>
-        <label className='form-check-inline'>
+      <td className='text-center'>
+        <div className='text-center'>
           <input
             type='radio'
             name={props.itemName}
             value='good'
             onChange={e => onChange(e)}
           ></input>
-        </label>
+        </div>
       </td>
-      <td>
-        <label className='form-check-inline'>
+      <td className='text-center'>
+        <div className='text-center'>
           <input
             type='radio'
             name={props.itemName}
             value='ok'
             onChange={e => onChange(e)}
           ></input>
-        </label>
+        </div>
       </td>
-      <td>
-        <label className='form-check-inline'>
+      <td className='text-center'>
+        <div className='text-center'>
           <input
             type='radio'
             name={props.itemName}
             value='bad'
             onChange={e => onChange(e)}
           ></input>
-        </label>
+        </div>
       </td>
     </tr>
   );

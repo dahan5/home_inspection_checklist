@@ -11,13 +11,24 @@ const Exterior = () => {
 
   return (
     <div className='exterior'>
-      <table class='table'>
-        <thead>
+      <table className='table table-bordered table-hover table-condensed'>
+        <caption>
+          Are things loose, cracked, damaged, rotted, bug infested?
+        </caption>
+        <thead className='table-primary'>
           <tr>
-            <th scope='col'>Exterior</th>
-            <th scope='col'>Good</th>
-            <th scope='col'>OK</th>
-            <th scope='col'>Bad</th>
+            <th scope='col' className='col-sm'>
+              Exterior
+            </th>
+            <th scope='col' className='text-center'>
+              Good
+            </th>
+            <th scope='col' className='text-center'>
+              OK
+            </th>
+            <th scope='col' className='text-center'>
+              Bad
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -44,12 +55,16 @@ const Exterior = () => {
         </tbody>
       </table>
 
-      <p>Are things loose, cracked, damaged, rotted, bug infested?</p>
-
-      <label>
+      <div className='form-group'>
         Notes:
-        <input type='text' />
-      </label>
+        <textarea
+          name='exterior_notes'
+          value={formData.exterior_notes}
+          onChange={e => onChange(e)}
+          rows='3'
+          className='w-100'
+        />
+      </div>
     </div>
   );
 };

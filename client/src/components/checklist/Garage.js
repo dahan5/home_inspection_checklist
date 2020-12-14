@@ -11,13 +11,22 @@ const Garage = () => {
 
   return (
     <div className='garage'>
-      <table class='table'>
-        <thead>
+      <table className='table table-bordered table-hover'>
+        <caption>Is the garage door opener operating properly?</caption>
+        <thead className='table-primary'>
           <tr>
-            <th scope='col'>Garage</th>
-            <th scope='col'>Good</th>
-            <th scope='col'>OK</th>
-            <th scope='col'>Bad</th>
+            <th scope='col' className='col-sm'>
+              Garage
+            </th>
+            <th scope='col' className='text-center'>
+              Good
+            </th>
+            <th scope='col' className='text-center'>
+              OK
+            </th>
+            <th scope='col' className='text-center'>
+              Bad
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -31,17 +40,16 @@ const Garage = () => {
         </tbody>
       </table>
 
-      <p>Is the garage door opener operating properly?</p>
-
-      <label>
+      <div className='form-group'>
         Notes:
-        <input
-          type='text'
+        <textarea
           name='garage_notes'
           value={formData.garage_notes}
           onChange={e => onChange(e)}
+          rows='3'
+          className='w-100'
         />
-      </label>
+      </div>
     </div>
   );
 };

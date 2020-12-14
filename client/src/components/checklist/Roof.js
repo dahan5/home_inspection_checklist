@@ -11,13 +11,24 @@ const Roof = () => {
 
   return (
     <div className='roof'>
-      <table className='table'>
-        <thead className='thead-light'>
+      <table className='table table-bordered table-hover'>
+        <caption>
+          When was it last replaced? Are there encroaching trees?
+        </caption>
+        <thead className='table-primary'>
           <tr>
-            <th scope='col'>Roof</th>
-            <th scope='col'>Good</th>
-            <th scope='col'>OK</th>
-            <th scope='col'>Bad</th>
+            <th scope='col' className='col-sm'>
+              Roof
+            </th>
+            <th scope='col' className='text-center'>
+              Good
+            </th>
+            <th scope='col' className='text-center'>
+              OK
+            </th>
+            <th scope='col' className='text-center'>
+              Bad
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -27,17 +38,16 @@ const Roof = () => {
         </tbody>
       </table>
 
-      <p>When was it last replaced? Are there encroaching trees?</p>
-
-      <label>
+      <div className='form-group'>
         Notes:
-        <input
-          type='text'
+        <textarea
           name='roof_notes'
           value={formData.roof_notes}
           onChange={e => onChange(e)}
+          rows='3'
+          className='w-100'
         />
-      </label>
+      </div>
     </div>
   );
 };

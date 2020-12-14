@@ -11,13 +11,22 @@ const Yard = () => {
 
   return (
     <div className='yard'>
-      <table class='table'>
-        <thead>
+      <table className='table table-bordered table-hover'>
+        <caption>Trees, shrubs and lawn dead, dying or bug infested?</caption>
+        <thead className='table-primary'>
           <tr>
-            <th scope='col'>Yard</th>
-            <th scope='col'>Good</th>
-            <th scope='col'>OK</th>
-            <th scope='col'>Bad</th>
+            <th scope='col' className='col-sm'>
+              Yard
+            </th>
+            <th scope='col' className='text-center'>
+              Good
+            </th>
+            <th scope='col' className='text-center'>
+              OK
+            </th>
+            <th scope='col' className='text-center'>
+              Bad
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -30,17 +39,16 @@ const Yard = () => {
         </tbody>
       </table>
 
-      <p>Trees, shrubs and lawn dead, dying or bug infested?</p>
-
-      <label>
+      <div className='form-group'>
         Notes:
-        <input
-          type='text'
+        <textarea
           name='yard_notes'
           value={formData.yard_notes}
           onChange={e => onChange(e)}
+          rows='3'
+          className='w-100'
         />
-      </label>
+      </div>
     </div>
   );
 };
